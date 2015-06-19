@@ -1,0 +1,49 @@
+<template name="quiz1">
+	<div class="row">
+		<div class="col-md-6 col-xs-6 bg-success" id="projectTable">
+			<h1>class projects</h1>
+			<hr/>
+			<table class="table table-hover">
+				<thead>
+					<tr><th>project</th><th>first</th><th>last</th><th>url</th><th>git</th></tr>
+				</thead>
+				<tbody>
+					{{#each theProjects}}
+						{{> projectRow}}
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-6 col-xs-6 bg-warning" id="projectForm">
+			<h1>enter project</h1>
+			<hr/>
+			<form class="form-horizontal" id="createproject">
+				<b>project:</b> <input class="form-control" type="text" name="project" placeholder="ex: JamDB">
+				<br>
+				<b>first name:</b> <input class="form-control" type="text" name="first" placeholder="ex: Kiana">
+				<br>
+				<b>last name:</b> <input class="form-control" type="text" name="last" placeholder="ex: Jane">
+				<br>
+				<b>url:</b> <input class="form-control" type="text" name="url" placeholder="ex: jamdb.meteor.com">
+				<br>
+				<b>git repo:</b> <input class="form-control" type="text" name="git" placeholder="ex: kianajane/jamdb">
+				<br>
+				<input class="btn btn-info" type="submit">
+			</form>
+		</div>
+	</div>
+</template>
+
+
+<template name="projectRow">
+	<tr>
+		<td>{{project}}</td>
+		<td>{{first}}</td>
+		<td>{{last}}</td>
+		<td><a href="http://{{url}}">{{url}}</a></td>
+		<td><a href="http://github.com/{{git}}">{{git}}</a></td>
+		<td>
+			<span class="glyphicon glyphicon-remove jbsapp-delete-icon" aria-hidden="true"></span>
+		</td>
+	</tr>
+</template>
